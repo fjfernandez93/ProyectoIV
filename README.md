@@ -1,13 +1,54 @@
-#Proyecto IV 2016-2017
+## Practica 0
 
-Proyecto desarrollado por Francisco José Fernández Muelas para la asignatura de Infraestructura Virtual.
+#1. Clave ssh
 
-El proyecto será el desarrollado paralelamente en la asignatura de DAI.
+Para poder subir cambios desde mi pc a los repositorios de mi cuenta en GitHub, tengo que generar una clave ssh con este comando:
 
-##Licencia
+ssh-keygen -t rsa -C "paco.fernandez.muelas@gmail.com"
 
-Este proyecto está desarrollado bajo la licencia GNU General Public License v3.0, la cual permite (entre otras cosas) el uso comercial, la distribución, la modificación, garantías de patente en contribuciones y el uso privado del proyecto.
+y subirla a mi cuenta de GitHub desde la interfaz web:
 
-Las principales condiciones para que esto sea posible son que el código fuente de los proyectos derivados de este sea público; utilizar la misma licencia e incluir una copia de ésta en el proyecto; e indicar los cambios realizados al código.
+![img1](https://github.com/fjfernandez93/ProyectoIV/blob/hito0/capturas/img1.png)
 
-Una copia completa de la licencia se encuentra disponible en este repositorio.
+#2. Repositorio proyecto principal, issues y milestone.
+
+Una vez creado el repositorio del proyecto principal (vacio) lo vinculo con una carpeta en mi pc, que será donde trabajaré, con estos comandos:
+
+git init
+
+git remote add origin https://github.com/fjfernandez93/ProyectoIV.git
+
+Y también creo el "milestone" y los "issues".
+
+![img2](https://github.com/fjfernandez93/ProyectoIV/blob/hito0/capturas/img2.png)
+
+![img3](https://github.com/fjfernandez93/ProyectoIV/blob/hito0/capturas/img3.png)
+
+#3. Cerrar issues
+
+Para completar los objetivos, voy añadiendo los archivos necesarios que van cerrando issues:
+
+git add .gitignore
+
+git commit -m "close \#1"
+
+git push -u origin master
+
+git add README.md
+
+git commit -m "close \#2"
+
+git push
+
+git add LICENSE
+
+git commit -m "close \#3"
+
+git push
+
+
+Podemos comprobar como los issues han pasado a "closed" y el milestone está 100% completado.
+
+![img4](https://github.com/fjfernandez93/ProyectoIV/blob/hito0/capturas/img4.png)
+
+![img5](https://github.com/fjfernandez93/ProyectoIV/blob/hito0/capturas/img5.png)
