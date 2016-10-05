@@ -7,6 +7,7 @@ El sistema tendrá dos funcionalidades principales:
 
 - Por otro lado, el sistema lleavará un registro de toda la actividad para relacionar usuarios y facilitar la visualización de estadísticas e historiales.
 
+La idea es hacer principalmente el back-end (aunque sea una versión con poca funcionalidad) que se encargue de toda la lógica del sistema y envíe la información a los front-end o aplicaciónes que se encarguen de presentarla al usuario e interactuar con él.
 
 ## Licencia
 
