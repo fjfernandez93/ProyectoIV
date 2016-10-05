@@ -9,6 +9,14 @@ El sistema tendrá dos funcionalidades principales:
 
 La idea es hacer principalmente el back-end (aunque sea una versión con poca funcionalidad) que se encargue de toda la lógica del sistema y envíe la información a los front-end o aplicaciónes que se encarguen de presentarla al usuario e interactuar con él.
 
+## Tecnología
+
+En principio usaré principalmente el framework Django, ya que es útil tanto para la parte de back-end y front-end. Para la base de datos usaré PostgreSQL, ya que está bien integrada en Django y se puede administrar de una manera no muy compleja.
+
+El despligue se hará utilizando una máquina virtual en AWS, utilizando parte de sus herramientas.
+
+
+
 ## Licencia
 
 Este proyecto está desarrollado bajo la licencia GNU General Public License v3.0, la cual permite (entre otras cosas) el uso comercial, la distribución, la modificación, garantías de patente en contribuciones y el uso privado del proyecto.
