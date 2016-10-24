@@ -1,3 +1,5 @@
+
+/*Importando los módulos*/
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,22 +7,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//mis cosas
+//Conexión con la base de datos
 var con = require('./connectdb');
 
-con.db.query("SELECT * FROM equipo")
-    .then(function (data) {
-        console.log("DATA:", data);
-    })
-    .catch(function (error) {
-        console.log("ERROR:", error);
-    });
-
-console.log(con.db.query("SELECT * from team"));
-
-
+/*Importando las rutas*/
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var info = require('./routes/info');
+var creatorneo = require('./routes/creatorneo');
 
 var app = express();
 
@@ -36,8 +29,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*Añadiendo las rutas a la aplicación*/
 app.use('/', routes);
-app.use('/users', users);
+app.use('/info', info);
+app.use('/creatorneo',creatorneo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

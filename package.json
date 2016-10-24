@@ -1,30 +1,23 @@
 {
   "name": "fifator",
-  "version": "0.1.0",
-  "description": "organizador de torneos de videojuegos de futbol",
-  "main": "app.js",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "ejs": "^2.4.2",
-    "cookie-parser": "^1.4.3",
-    "debug": "^2.2.0",
-    "serve-favicon": "^2.3.0",
-    "morgan": "^1.7.0",
-    "express": "^4.13.4",
-    "pg-promise": "^5.3.5"
-  },
-  "devDependencies": {},
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fjfernandez93/ProyectoIV.git"
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
+    "express": "~4.13.4",
+    "morgan": "~1.7.0",
+    "pg-promise": "^5.3.5",
+    "serve-favicon": "~2.3.0"
   },
-  "author": "Francisco José Fernández Muelas",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/fjfernandez93/ProyectoIV/issues"
-  },
-  "homepage": "https://github.com/fjfernandez93/ProyectoIV#readme"
+  "main": "bin/www",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
