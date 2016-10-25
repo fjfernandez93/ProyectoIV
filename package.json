@@ -5,18 +5,25 @@
   "scripts": {
     "start": "node ./bin/www"
   },
+  "engines":{"node": "4.6.x || 6.8.x"},
   "dependencies": {
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
+    "docco": "^0.7.0",
     "ejs": "~2.4.1",
     "express": "~4.13.4",
+    "grunt": "^1.0.1",
+    "grunt-bg-shell": "^2.3.3",
     "morgan": "~1.7.0",
     "pg-promise": "^5.3.5",
     "serve-favicon": "~2.3.0"
   },
   "main": "bin/www",
-  "devDependencies": {},
+  "devDependencies": {
+    "docco": "^0.7.0",
+    "grunt-docco": "^0.5.0"
+  },
   "author": "",
   "license": "ISC",
   "description": ""

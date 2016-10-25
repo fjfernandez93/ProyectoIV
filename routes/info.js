@@ -55,8 +55,6 @@ router.get('/:p', function(req, res, next) {
                 });
             break;
     }
-    console.log(req.params.p);
-    //res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
