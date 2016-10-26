@@ -131,7 +131,7 @@ El parámetro 'testing' indica a la aplicación que ese torneo debe ser
 borrado cuando se compruebe que todo esta en orden. */
 describe('POST torneo',function(){
   it('Crea torneo correctamente', function(done){
-    var torneo = {nombre : 'pedro',testing: 'a'};
+    var torneo = {nombre : 'Copa Granada',testing: 'a'};
     request(app)
       .post('/creatorneo')
       .send(torneo)
