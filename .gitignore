@@ -1,2 +1,4 @@
+#Ignora archivos creados por MacOS para el sistema de archivos o sabe dios
 .DS_Store
+#Ignora archivos de config del IDE webstorm
 .idea/
