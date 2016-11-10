@@ -10,7 +10,20 @@ El sistema tendrá dos funcionalidades principales:
 
 La idea es hacer principalmente el back-end (aunque sea una versión con poca funcionalidad) que se encargue de toda la lógica del sistema y envíe la información a los front-end o aplicaciónes que se encarguen de presentarla al usuario e interactuar con él.
 
+## Despliegue
 
+Para desplegar en Heroku es necesario seguir los siguientes pasos:
+
+
+git clone https://github.com/fjfernandez93/ProyectoIV.git
+cd ProyectoIV/
+git push heroku master
+
+heroku addons:create heroku-postgresql:hobby-dev
+
+heroku pg:backups restore 'https://s3.eu-central-1.amazonaws.com/pokerb1/fifator.dump' DATABASE_URL
+
+Este útlimo comando nos pedirá confirmación, teniendo que añadir el nombre del dyno para ello.
 
 ## Licencia
 

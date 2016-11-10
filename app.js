@@ -65,5 +65,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
+console.log(process.env.DBDATA);
 
 module.exports = app;
