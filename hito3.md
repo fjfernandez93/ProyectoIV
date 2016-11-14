@@ -44,10 +44,4 @@ Cuyo resultado es:
 
 ## Problemas encontrados.
 
-Un problema que he tenido con el deslpiegue automático de mi aplicación en Heroku es el plugin para la BD de Postres. Cuando se añade el plugin, crea una BD vacía. Para que el despligue cuente con el esquema de tablas SQL que necesita la aplicación para funcionar, he subido un archivo "dump" con el esquema al servidor de archivos de AWS. Desde el CLI de Heroku puedo hacer un "restore" de este dump indicando su url de AWS. El problema viene cuando el comando que hace "restore", ya que pide confirmación de la operación y para ello hay que escribir el nombre del dyno donde está almacenada la BD. Esto hace que de momento no pueda automatizar totalmente el despligue con un script o con un boton en GitHub tipo "Deploy on Heroku". He puesto la duda el [StackOverflow](http://stackoverflow.com/questions/40513823/how-to-confirm-a-backup-restore-of-postgres-in-heroku), pero de momento no he obtenido respuesta.s
-
-
-
-git clone https://github.com/fjfernandez93/ProyectoIV.git
-
-https://boiling-oasis-79656.herokuapp.com
+Un problema que he tenido con el deslpiegue automático de mi aplicación en Heroku es el plugin para la BD de Postres. Cuando se añade el plugin, crea una BD vacía. Para que el despligue cuente con el esquema de tablas SQL que necesita la aplicación para funcionar, he subido un archivo "dump" con el esquema al servidor de archivos de AWS. Desde el CLI de Heroku puedo hacer un "restore" de este dump indicando su url de AWS. El problema viene cuando el comando que hace "restore", ya que pide confirmación de la operación y para ello hay que escribir el nombre del dyno donde está almacenada la BD. Esto hace que de momento no pueda automatizar totalmente el despligue con un script o con un boton en GitHub tipo "Deploy on Heroku". He puesto la duda el [StackOverflow](http://stackoverflow.com/questions/40513823/how-to-confirm-a-backup-restore-of-postgres-in-heroku), pero de momento no he obtenido respuesta.
