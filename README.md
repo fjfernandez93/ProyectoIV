@@ -15,15 +15,25 @@ La idea es hacer principalmente el back-end (aunque sea una versión con poca fu
 Para desplegar en Heroku es necesario seguir los siguientes pasos:
 
 
+```bash
 git clone https://github.com/fjfernandez93/ProyectoIV.git
 cd ProyectoIV/
-git push heroku master
+
 
 heroku addons:create heroku-postgresql:hobby-dev
 
 heroku pg:backups restore 'https://s3.eu-central-1.amazonaws.com/pokerb1/fifator.dump' DATABASE_URL
-
+```
 Este útlimo comando nos pedirá confirmación, teniendo que añadir el nombre del dyno para ello.
+
+Por último:
+
+```bash
+git push heroku master
+
+heroku open
+```
+(el último comando es únicamente para que se abra en el navegador el despligue).
 
 ## Licencia
 
