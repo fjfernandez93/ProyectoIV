@@ -35,6 +35,8 @@ heroku open
 ```
 (el último comando es únicamente para que se abra en el navegador el despligue).
 
+Para ver estos pasos en detalle e información extra, consultar [aquí](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/hito3.md).
+
 ## Licencia
 
 Este proyecto está desarrollado bajo la licencia GNU General Public License v3.0, la cual permite (entre otras cosas) el uso comercial, la distribución, la modificación, garantías de patente en contribuciones y el uso privado del proyecto.
