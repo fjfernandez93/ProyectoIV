@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 router.post('/',function (req, res, next) {
 
 
-    con.db.one("insert into torneo (nombre, estado) values ($1,$2) returning \"ID_torneo\" " , [req.body.nombre,'N'])
+    con.db.one("insert into torneo (nombre, estado) values ($1,$2) returning \"ID_torneo\" " , [req.body.nombre,'C'])
         .then(function (data) {
             res.render('mensaje', {text:"Torneo creado con éxito."});
 
