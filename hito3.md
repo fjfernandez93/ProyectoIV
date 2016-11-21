@@ -41,7 +41,7 @@ Antes de que empiece a funcionar correctamente, es necesario crear el modelo de 
 
 A partir de este momento, la aplicación está disponible en https://boiling-oasis-79656.herokuapp.com.
 
-![img3-6](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-6.png)
+![img3-2b](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-2b.png)
 
 ## Deslpiegue automático desde GitHub
 
