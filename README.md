@@ -12,30 +12,35 @@ La idea es hacer principalmente el back-end (aunque sea una versión con poca fu
 
 ## Despliegue
 
-Para desplegar en Heroku es necesario seguir los siguientes pasos:
+Este proyecto está desarrolado en Node.js, y utiliza un esquema de base de datos en PostgreSQL. Para su despliegue, es necesario:
 
+- Para obtener los fuentes del proyecto, solo es necesario clonar este repositorio.
 
-```bash
-git clone https://github.com/fjfernandez93/ProyectoIV.git
-cd ProyectoIV/
+- Establecer en la plataforma que se vaya a desplegar las variables de entorno 'DBDATA' que contenga la url de la BD de datos donde se vaya a desplegar el esquema; y la variable de entorno 'CONNECT_WITH_SSL' con valor "OK" si el servidor donde alojaremos la BD necesita conexión por SSL.
 
-
-heroku addons:create heroku-postgresql:hobby-dev
-
-heroku pg:backups restore 'https://s3.eu-central-1.amazonaws.com/pokerb1/fifator.dump' DATABASE_URL
-```
-Este útlimo comando nos pedirá confirmación, teniendo que añadir el nombre del dyno para ello.
-
-Por último:
+- Una vez clonado y establecidas las variables de entorno, ejecutar (en la raiz del proyecto):
 
 ```bash
-git push heroku master
-
-heroku open
+node models/database.js
 ```
-(el último comando es únicamente para que se abra en el navegador el despligue).
+Este script crea el esquema de la base de datos creando las tablas necesarias.
 
-Para ver estos pasos en detalle e información extra, consultar [aquí](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/hito3.md).
+- Por último, para levantar el servicio web ejecutar:
+
+```bash
+./bin/www
+```
+
+Y la aplicación será accesible en la url de la máquina en la que se ha hecho el despliegue, en el puerto 3000.
+
+- Para pasar los test, se puede ejecutar el comando "mocha" en la raiz del proyecto, o bien intregarlo en Travis, ya hay definido un archivo de configuración para esta plataforma de Integración Continua.
+
+
+Como sugerencia de despliegue, se recomienda por su facilidad el PaaS "Heroku". Para ver los pasos necesrios, consultar [aquí](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/hito3.md).
+
+La aplicación, una vez desplegada en Heroku puede accederse desde su URL:
+https://arcane-oasis-51879.herokuapp.com
+
 
 ## Licencia
 
