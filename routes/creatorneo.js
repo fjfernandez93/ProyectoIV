@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 router.post('/',function (req, res, next) {
 
 
-    con.db.one("insert into torneo (nombre, estado) values ($1,$2) returning \"ID_torneo\" " , [req.body.nombre,'C'])
+    con.db.one("insert into torneo (nombre, estado) values ($1,$2) returning id" , [req.body.nombre,'N'])
         .then(function (data) {
             res.render('mensaje', {text:"Torneo creado con éxito."});
 
@@ -21,7 +21,7 @@ router.post('/',function (req, res, next) {
             * TODO: eliminar esta parte y añadirla directamente al test.*/
 
             if(typeof(req.body.testing) != 'undefined'){
-                con.db.none("delete from torneo where \"ID_torneo\" = $1 ",[data.ID_torneo])
+                con.db.none("delete from torneo where id = $1 ",[data.id])
                     .then(function () {
                         console.log("Borrado con éxito");
                     })
