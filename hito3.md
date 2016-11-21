@@ -20,19 +20,30 @@ Añado el plugin para la base de datos:
 
 ![img3-3](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-3.png)
 
-Hago un restore del esquema de la BD. El archivo con dicho esquema está disponible publicamente en AWS:
+Con los siguientes comandos establezco las variables de entorno necesarias:
 
-![img3-4](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-4.png)
+```bash
+git config:set DBDATA='url del servidor donde alojo la BD'
+
+git config:set CONNECT_WITH_SSL='OK'
+
+```
+(Este último sólo si el servidor de la BD necesita conexión vía SSL)
+
 
 Hago push al repositorio de Heroku para que se despliegue de forma automática
 
 ![img3-5](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-5.png)
 
+Antes de que empiece a funcionar correctamente, es necesario crear el modelo de base de datos:
+
+![img3-6](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-6.png)
+
 A partir de este momento, la aplicación está disponible en https://boiling-oasis-79656.herokuapp.com.
 
 ![img3-6](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-6.png)
 
-## Deslpiegue automático y CI
+## Deslpiegue automático desde GitHub
 
 El despligue anterior se ha hecho a través de un fork de mi proyecto, y enlazando este fork a un "remote" de heroku. A través de la interfaz web de Heroku puedo enlazar el despligue de Heroku con el repositorio original de GitHub donde tengo el proyecto. De esta manera, cuando haga cualquier push al repositorio original se activa el despligue con los nuevos cambios (si previamente pasa los test en Travis). Para hacer esto solo hay que seguir este paso:
 
