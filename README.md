@@ -41,6 +41,8 @@ Como sugerencia de despliegue, se recomienda por su facilidad el PaaS "Heroku". 
 La aplicación, una vez desplegada en Heroku puede accederse desde su URL:
 https://arcane-oasis-51879.herokuapp.com
 
+Heroku también nos ofrece la posibilidad de desplegar la aplicación con los cambios que vayamos haciendo mediante push al repositorio en GitHub (para ver como hacer esto consultar el enlace de documentación anterior).
+
 
 ## Licencia
 
