@@ -40,7 +40,7 @@ Antes de que empiece a funcionar correctamente, es necesario crear el modelo de 
 ![img3-2b](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-2b.png)
 
 
-A partir de este momento, la aplicación está disponible en https://boiling-oasis-79656.herokuapp.com.
+A partir de este momento, la aplicación está disponible en https://arcane-oasis-51879.herokuapp.com
 
 ![img3-6](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img3-6.png)
 
