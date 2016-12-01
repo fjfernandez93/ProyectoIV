@@ -1,72 +1,26 @@
 # Hito 4: Creación de un entorno de pruebas para la aplicación usando contenedores
 
-
-En la documentacion de Docker se indica que hay dos métodos para la creación de nuestra propia imagen:
-
-1. Haciendo un pull de un contenedor ya existente, lo modificamos con comandos y luego hacemos un commit.
-2. Generarlo a partir de un Dockerfile.
-
-### Método 1: modificando contenedor.
-
-Como la aplicación está hecha utilizando Node.js, voy a hacer el contenedor sobre el que hay oficial de Node, que está basado en Debian 8.
+El comando princpial para el despliegue este este:
 
 ```bash
-sudo docker pull node
+docker run --rm -p 30000:3000 --link pg_test:pg_test fifatortest
 ```
-Una vez descargado, inicio una terminal en el:
+
+Con -rm le decimos a docker que elimine el contenedor después de que se le haga "stop".
+
+Con -p 30000:3000 'bindeamos' el puerto 3000 del contenedor al puerto 30000 del localhost. En vez del 30000, podría ponerse cualquier otro que no se esté usando, o utilizar -P para que Docker lo asigne automaticamente.
+
+Con --link pg_test:pg_test estamos 'enlazando' este contenedor con el contenedor cuya etiqueta es 'pg_test'. Este contenedor es el que contiene la BD, y previamente lo hemos desplegado con
 
 ```bash
-docker run -t -i node /bin/bash
+docker run --rm -P --name pg_test postgretest
 ```
-Esta imagen ya viene con Node, por lo que ahora tengo que instalar PostgreSQL y los paquetes npm de dependencias.
+Podemos poner cualquier nombre en vez de pg_test.
 
-Antes de nada creo un usuario de nombre 'paco' y lo añado a los usuarios "sudoers" con la orden visudo (previamente habiendo instalado 'nano', ya que la imagen venía sin ningún editor de texto).
-
-Para Postgre:
+La aplicacion se despliegua automaticamente cuando ejecutamos run porque en el archivo Dockerfile he indicado con la etiqueta CMD que se ejecuten los comandos de creación del modelo de BD y el necesario para levantar la aplicación cada vez que se inicie el contenedor. Si no queremos que se haga de forma automática, con el comando:
 
 ```bash
-sudo apt-get update
-sudo apt-get install postgresql-9.4 postgresql-client-9.4
-sudo /etc/init.d/postgresql start
-```
-Para express:
-
-```bash
-
-npm install -g express
-
+docker run --rm -p 30000:3000 -t -i --link pg_test:pg_test fifatortest /bin/bash
 ```
 
-Para instalar el resto de paquetes que son necensarios, clono el repositorio donde está el proyecto y lo instalo:
-
-```bash
-git clone https://github.com/fjfernandez93/ProyectoIV.git
-npm install
-```
-Creo la base de datos:
-
-```bash
-psql --command "CREATE USER pake WITH SUPERUSER PASSWORD 'pake';"
-createdb -O pake fifa
-```
-Exporto la variable de entorno:
-
-```bash
-export DBDATA="postgres://pake:pake@localhost:5432/fifa"
-```
-Y ejecuto el script que crea las tablas en la BD
-
-```bash
-node models/database.js
-```
-
-Con esto ya estaría lista para su ejecución. Para poder "exportarla" hago un commit
-
-```bash
-docker commit -m "Docker completo" -a "Paco Fernandez" 7ab192184fc9 pokercio/fifator:v0.1.0
-```
-Con esto ya tengo el contenedor entre los disponibles:
-
-![img4-1](https://github.com/fjfernandez93/ProyectoIV/blob/documentacion/capturas/img4-1.png)
-
-### Método 2: dockerfile.
+decimos que inicie una terminal interactiva (-t -i) tipo 'bash'.
