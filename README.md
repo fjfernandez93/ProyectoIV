@@ -49,7 +49,7 @@ Este proyecto puede ser desplegado en un entorno de pruebas mediante contenedore
 
 ###### Si se quiere a través del Dockerfile:
 
-En un directorio aparte, descargamos este Dockerfile (obtenido de la documentación oficial de Docker y modificado el nombre de la BD) y ejecutamos:
+En un directorio aparte, descargamos [este Dockerfile](https://gist.github.com/fjfernandez93/e974959b7d36acf7b47b772833b1c389) (obtenido de la documentación oficial de Docker y modificado el nombre de la BD) y ejecutamos:
 
 ```bash
 docker build -t postgretest .
