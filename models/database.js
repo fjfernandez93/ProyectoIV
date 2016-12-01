@@ -51,6 +51,7 @@ con.db.query(autoincremento)
                     con.db.query(tablauser)
                       .then(function(){
                         console.log("tabla user creada");
+                        process.exit();
                       })
                       .catch(function (error) {
                           console.log("ERROR:", error);
@@ -65,7 +66,4 @@ con.db.query(autoincremento)
     .catch(function (error) {
         console.log("ERROR:", error);
     });
-
-
-
 }
