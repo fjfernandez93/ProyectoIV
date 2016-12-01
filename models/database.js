@@ -34,13 +34,9 @@ tablauser= `CREATE TABLE public.usuario
     CONSTRAINT usuario_pkey PRIMARY KEY (login)
 )`
 
-con.db.query(tablaequipo)
-  .then(function(){
-    console.log("tabla equipo creada");
-  })
-  .catch(function (error) {
-      console.log("ERROR:", error);
-  });
+function crea(){
+
+
 
 con.db.query(autoincremento)
     .then(function () {
@@ -49,6 +45,20 @@ con.db.query(autoincremento)
            con.db.query(addinc)
               .then(function(){
                 console.log("tabla torneo creada")
+                con.db.query(tablaequipo)
+                  .then(function(){
+                    console.log("tabla equipo creada");
+                    con.db.query(tablauser)
+                      .then(function(){
+                        console.log("tabla user creada");
+                      })
+                      .catch(function (error) {
+                          console.log("ERROR:", error);
+                      });
+                  })
+                  .catch(function (error) {
+                      console.log("ERROR:", error);
+                  });
               })
          })
     })
@@ -56,10 +66,6 @@ con.db.query(autoincremento)
         console.log("ERROR:", error);
     });
 
-    con.db.query(tablauser)
-      .then(function(){
-        console.log("tabla user creada");
-      })
-      .catch(function (error) {
-          console.log("ERROR:", error);
-      });
+
+
+}
