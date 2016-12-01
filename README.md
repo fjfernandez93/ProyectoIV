@@ -43,6 +43,7 @@ https://arcane-oasis-51879.herokuapp.com
 
 Heroku también nos ofrece la posibilidad de desplegar la aplicación con los cambios que vayamos haciendo mediante push al repositorio en GitHub (para ver como hacer esto consultar el enlace de documentación anterior).
 
+## Docker
 
 ## Licencia
 
