@@ -1,6 +1,10 @@
 
 var pgp = require('pg-promise')();
-var db = pgp(process.env.DBDATA);
+
+//Conexión con la base de datos
+var con = require('../connectdb');
+
+
 
 
 tablaequipo = "CREATE TABLE public.equipo(nombre character varying(64) NOT NULL,calidad integer," +
@@ -30,7 +34,7 @@ tablauser= `CREATE TABLE public.usuario
     CONSTRAINT usuario_pkey PRIMARY KEY (login)
 )`
 
-db.query(tablaequipo)
+con.db.query(tablaequipo)
   .then(function(){
     console.log("tabla equipo creada");
   })
@@ -38,11 +42,11 @@ db.query(tablaequipo)
       console.log("ERROR:", error);
   });
 
-db.query(autoincremento)
+con.db.query(autoincremento)
     .then(function () {
-      db.query(tablatorneo)
+      con.db.query(tablatorneo)
          .then(function(){
-           db.query(addinc)
+           con.db.query(addinc)
               .then(function(){
                 console.log("tabla torneo creada")
               })
@@ -52,7 +56,7 @@ db.query(autoincremento)
         console.log("ERROR:", error);
     });
 
-    db.query(tablauser)
+    con.db.query(tablauser)
       .then(function(){
         console.log("tabla user creada");
       })
