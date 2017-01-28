@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  sudo: yes
+  remote_user: vagrant
+  tasks:
+  - name: Actualizar el sistema
+    command: sudo apt-get update
+    register: actualizarSistema
+  - debug: msg="hola caracola"
+  - name: Install Packages
+    apt: name=nodejs-legacy state=present
