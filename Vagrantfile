@@ -26,10 +26,10 @@ config.vm.provider :azure do |azure, override|
   azure.tcp_endpoints = '80:80'
   #azure.vm_password = 'pass'
 
-  azure.tenant_id = 'ec65dcde-0ff5-47d7-b5af-8e85e429e1c2'
-  azure.client_id = '17db12eb-8ccd-419a-8442-c52b64f984c5'
-  azure.client_secret = 'M0Qrhw1eYvNA+HHPviiiarONMacgv7uwkLA3Y5Tf+E4='
-  azure.subscription_id = 'a1ba2458-e385-4e0e-a97c-8b4920a82a0b'
+  azure.tenant_id = ''
+  azure.client_id = ''
+  azure.client_secret = ''
+  azure.subscription_id = ''
 
 end
 config.vm.provision "ansible" do |ansible|
