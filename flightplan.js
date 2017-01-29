@@ -11,7 +11,7 @@ plan.target('staging', {
 });
 
 plan.remote(function(remote) {
-  remote.log('Move folder to web root');
+  remote.log('Provisionando maquina desde repositorio y lanzandola');
 
   remote.exec('git clone https://github.com/fjfernandez93/ProyectoIV.git')
   remote.exec('forever stop ~/ProyectoIV/bin/www', {failsafe: true});
