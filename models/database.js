@@ -67,3 +67,4 @@ con.db.query(autoincremento)
         console.log("ERROR:", error);
     });
 }
+crea();

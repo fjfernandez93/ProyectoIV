@@ -16,6 +16,7 @@ config.vm.network "forwarded_port", guest: 80, host: 80
 # use local ssh key to connect to remote vagrant box
 config.ssh.private_key_path = '~/.ssh/id_rsa'
 
+config.env.enable
 
 config.vm.provider :azure do |azure, override|
 
@@ -26,10 +27,10 @@ config.vm.provider :azure do |azure, override|
   azure.tcp_endpoints = '80:80'
   #azure.vm_password = 'pass'
 
-  azure.tenant_id = ''
-  azure.client_id = ''
-  azure.client_secret = ''
-  azure.subscription_id = ''
+  azure.tenant_id = ENV['TENANTID']
+  azure.client_id = ENV['CLIENTID']
+  azure.client_secret = ENV['CLIENTSECRET']
+  azure.subscription_id = ENV['SUBID']
 
 end
 config.vm.provision "ansible" do |ansible|
