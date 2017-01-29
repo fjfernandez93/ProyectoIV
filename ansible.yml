@@ -1,11 +1,45 @@
 ---
-- hosts: localhost
+- hosts: all
   sudo: yes
   remote_user: vagrant
   tasks:
   - name: Actualizar el sistema
     command: sudo apt-get update
     register: actualizarSistema
-  - debug: msg="hola caracola"
-  - name: Install Packages
-    apt: name=nodejs-legacy state=present
+  - name: Instalar paquetes
+    apt: name={{item}}
+    with_items:
+        - nodejs-legacy
+        - postgresql
+        - libpq-dev
+        - python-psycopg2
+  - name: Instalando paquetes de npm de manera global
+    shell: npm install -g grunt-cli
+    shell: npm install -g forever
+
+  - name: Declarando variable de entorno para la URL de la base de datos
+    lineinfile: dest=/etc/environment line="DBDATA='postgres://postgres:postgres@localhost:5432/fifator'"
+
+#Creando la BD siguiendo los pasos de https://github.com/ansible/ansible-examples/blob/master/language_features/postgresql.yml
+- hosts: all
+  become: yes
+  become_user: postgres
+  gather_facts: no
+
+  vars:
+    dbname: fifator
+    dbuser: postgres
+    dbpassword: postgres
+
+  tasks:
+  - name: ensure database is created
+    postgresql_db: name={{dbname}}
+
+  - name: ensure user has access to database
+    postgresql_user: db={{dbname}} name={{dbuser}} password={{dbpassword}} priv=ALL
+
+  - name: ensure user does not have unnecessary privilege
+    postgresql_user: name={{dbuser}} role_attr_flags=NOSUPERUSER,NOCREATEDB
+
+  - name: ensure no other user can access the database
+    postgresql_privs: db={{dbname}} role=PUBLIC type=database priv=ALL state=absent
